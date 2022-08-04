@@ -1,0 +1,59 @@
+<html>
+
+<body>
+    <h1>Product List</h1>
+    <form>
+        Name : <input type="text" id="name" /> <br />
+        Price: <input type="number" id="price" /> <br />
+        <button type="button" id="btn">Add Product</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="prdbody">
+        </tbody>
+    </table>
+
+    <script>
+        var products = [
+            { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
+            { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
+            { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
+            { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
+            { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }];
+        var tbody = document.getElementById("prdbody");
+        products.forEach( p => {
+            var tr = document.createElement("tr"); // <tr></tr>
+            var td = document.createElement("td"); // <td></td>
+            td.innerText = p.name;
+            tr.appendChild(td);
+            
+            td = document.createElement("td");
+            td.innerText = p.price;
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+        });
+
+        document.getElementById("btn").addEventListener("click", (evt) => {
+            var name = document.getElementById("name").value;
+            var price = document.getElementById("price").value;
+
+            var tr = document.createElement("tr"); // <tr></tr>
+            var td = document.createElement("td"); // <td></td>
+            td.innerText = name;
+            tr.appendChild(td);
+            
+            td = document.createElement("td");
+            td.innerText = price;
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+        });
+
+    </script>
+</body>
+
+</html>
